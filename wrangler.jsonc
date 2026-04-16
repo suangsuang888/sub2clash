@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sub2clash",
+  "main": "./src/index.js",
+  "compatibility_date": "2025-09-06",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/*",
+      "!/assets/*"
+    ]
+  },
+  "secrets": {
+    "required": [
+      "APP_PASSWORD",
+      "SESSION_SECRET"
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "85d316b6116f44448940cc15006658df"
+    }
+  ]
+}
